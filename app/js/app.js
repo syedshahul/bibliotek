@@ -2,6 +2,7 @@
 
 
 // Declare app level module which depends on filters, and services
+/* ng-app="module-name" should be equal to angular.module('module-name',[]); "*/
 var bibliotek = angular.module('bibliotek', ['ui.bootstrap','bibliotek.filters', 'bibliotek.services',
     'bibliotek.directives', 'bibliotek.controllers']).
     config(['$routeProvider', function ($routeProvider) {
@@ -9,5 +10,7 @@ var bibliotek = angular.module('bibliotek', ['ui.bootstrap','bibliotek.filters',
     $routeProvider.when('/view2', {templateUrl:'partials/partial2.html', controller:'MyCtrl1'});
     $routeProvider.when('/view3', {templateUrl:'partials/accordion.html', controller:'AccordionDemoCtrl'});
     $routeProvider.when('/view4', {templateUrl:'partials/communicate-btwn-controller.html'});
+    $routeProvider.when('/the-dot', {templateUrl:'partials/the-dot.html'});
+    $routeProvider.when('/the-scope-on-method', {templateUrl:'partials/method-on-scope.html'});
     $routeProvider.otherwise({redirectTo:'/view1'});
 }]);

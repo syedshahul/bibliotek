@@ -11,8 +11,8 @@ bibliotek.factory("MOService", function ($rootScope) {
         this.message = msg;
         this.moMessageItem();
     };
-    mt.moMessageItem = function () {
 
+    mt.moMessageItem = function () {
         $rootScope.$broadcast("getMessage");
     };
     return mt;
@@ -30,6 +30,42 @@ bibliotek.controller('ControllerOriginate', ['$scope', 'MOService', function ($s
     });
 
 }]);
+
+
+bibliotek.controller('ControllerReverse', ['$scope', function ($scope) {
+    $scope.reverseMessage=function(message){
+       return message.split("").reverse().join("");
+    }
+}]);
+
+bibliotek.controller('ControllerInput', ['$scope', function ($scope) {
+
+}]);
+
+bibliotek.controller('ControllerOne', ['$scope', function ($scope) {
+
+}]);
+
+bibliotek.controller('ControllerTwo', ['$scope', function ($scope) {
+
+}]);
+
+bibliotek.controller('ControllerThree', ['$scope', function ($scope) {
+
+}]);
+
+bibliotek.controller('ControllerTextOne', ['$scope', function ($scope) {
+
+}]);
+
+bibliotek.controller('ControllerTextTwo', ['$scope', function ($scope) {
+
+}]);
+
+bibliotek.controller('ControllerTextThree', ['$scope', function ($scope) {
+
+}]);
+
 bibliotek.controller('ControllerReceiver1', ['$scope', 'MOService', function ($scope, MOService) {
     $scope.$on("getMessage", function () {
         $scope.message = 'R1 : ' + MOService.message;

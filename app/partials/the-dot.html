@@ -1,0 +1,31 @@
+<!--
+Tutorial available at http://www.thinkster.io/pick/51d26ba41d72252b87000002/angularjs-the-dot
+-->
+<h2 class="page-header">With dot</h2>
+<div class="popover-title">
+    <input type="text" ng-model="data.message">
+</div>
+<div ng-controller="ControllerOne" class="popover-content">
+    <input type="text" ng-model="data.message">
+</div>
+<div ng-controller="ControllerTwo" class="popover-content">
+    <input type="text" ng-model="data.message">
+</div>
+<div ng-controller="ControllerThree" class="popover-content">
+    <input type="text" ng-model="data.message">
+</div>
+
+<h2 class="page-header">With out dot</h2>
+
+<div class="popover-title">
+    <input type="text" ng-model="text">
+</div>
+<div ng-controller="ControllerTextOne" class="popover-content">
+    <input type="text" ng-model="text">
+</div>
+<div ng-controller="ControllerTextTwo" class="popover-content">
+    <input type="text" ng-model="text">
+</div>
+<div ng-controller="ControllerTextThree" class="popover-content">
+    <input type="text" ng-model="text">
+</div>
