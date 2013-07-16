@@ -2,20 +2,65 @@
 
 /* Controllers */
 
-angular.module('bibliotek.controllers', [])
-    .controller('MyCtrl1', ['$scope', function ($scope) {
+var bibliotek = angular.module('bibliotek.controllers', []);
+
+bibliotek.factory("MOService", function ($rootScope) {
+    var mt = {};
+    mt.message = "";
+    mt.receiveMessage = function (msg) {
+        this.message = msg;
+        this.moMessageItem();
+    };
+    mt.moMessageItem = function () {
+
+        $rootScope.$broadcast("getMessage");
+    };
+    return mt;
+});
+
+bibliotek.controller('ControllerOriginate', ['$scope', 'MOService', function ($scope, MOService) {
+
+    $scope.push = function (msg) {
+        MOService.receiveMessage(msg);
+    };
+
+    $scope.$on("getMessage", function () {
+        $scope.message = '';
+        $scope.msgText = 'Orgi : ' + MOService.message;
+    });
+
+}]);
+bibliotek.controller('ControllerReceiver1', ['$scope', 'MOService', function ($scope, MOService) {
+    $scope.$on("getMessage", function () {
+        $scope.message = 'R1 : ' + MOService.message;
+    });
+}]);
+bibliotek.controller('ControllerReceiver2', ['$scope', 'MOService', function ($scope, MOService) {
+    $scope.$on("getMessage", function () {
+        $scope.message = 'R2 : ' + MOService.message;
+    });
+}]);
+bibliotek.controller('ControllerReceiver3', ['$scope', 'MOService', function ($scope, MOService) {
+    $scope.$on("getMessage", function () {
+        $scope.message = 'R3 : ' + MOService.message;
+    });
+}]);
+
+
+bibliotek.controller('MyCtrl1', ['$scope', function ($scope) {
     $scope.text = "view one";
-}])
-    .controller('MyCtrl2', ['$scope', function ($scope) {
+}]);
+
+bibliotek.controller('MyCtrl2', ['$scope', function ($scope) {
     $scope.message = "view two";
-}])
-    /*
-     * We could config like below:
-     *  .controller('AccordionDemoCtrl', ['$scope', function (skop) {
-     * skop.oneAtATime = true;
-     * ...
-     * */
-    .controller('AccordionDemoCtrl', ['$scope', function ($scope) {
+}]);
+/*
+ * We could config like below:
+ *  .controller('AccordionDemoCtrl', ['$scope', function (skop) {
+ * skop.oneAtATime = true;
+ * ...
+ * */
+bibliotek.controller('AccordionDemoCtrl', ['$scope', function ($scope) {
     $scope.oneAtATime = true;
 
     $scope.groups = [

@@ -1,0 +1,17 @@
+<div ng-controller="ControllerOriginate" class="pager">
+    <input ng-model="message" class="input-medium"/>
+    <button class="btn-small" ng-click="push(message);">Broadcast</button>
+    <h3 class="info">{{ msgText }}</h3>
+</div>
+
+<div ng-controller="ControllerReceiver1" class="pager">
+    <input ng-model="message" class="input-medium"/>
+</div>
+
+<div ng-controller="ControllerReceiver2" class="pager">
+    <input ng-model="message" class="input-medium"/>
+</div>
+
+<div ng-controller="ControllerReceiver3" class="pager">
+    <input ng-model="message" class="input-medium"/>
+</div>

@@ -8,5 +8,6 @@ var bibliotek = angular.module('bibliotek', ['ui.bootstrap','bibliotek.filters',
     $routeProvider.when('/view1', {templateUrl:'partials/partial1.html', controller:'MyCtrl1'});
     $routeProvider.when('/view2', {templateUrl:'partials/partial2.html', controller:'MyCtrl1'});
     $routeProvider.when('/view3', {templateUrl:'partials/accordion.html', controller:'AccordionDemoCtrl'});
+    $routeProvider.when('/view4', {templateUrl:'partials/communicate-btwn-controller.html'});
     $routeProvider.otherwise({redirectTo:'/view1'});
 }]);
