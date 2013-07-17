@@ -6,4 +6,9 @@ http://www.thinkster.io/pick/51d26fd51d7225edb4000004/angularjs-defining-a-metho
 <div ng-controller="ControllerReverse" class="pager">
     <input ng-model="message" class="input-medium"/>
     <h3>{{ reverseMessage(message) }}</h3>
+
+    <h1 class="page-header"> Expressions</h1>
+    <input ng-model="amount" class="input-medium"/>
+    <input ng-model="rate" class="input-medium"/>
+    {{ amount*rate|currency }}
 </div>
