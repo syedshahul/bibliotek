@@ -12,5 +12,8 @@ var bibliotek = angular.module('bibliotek', ['ui.bootstrap','bibliotek.filters',
     $routeProvider.when('/view4', {templateUrl:'partials/communicate-btwn-controller.html'});
     $routeProvider.when('/the-dot', {templateUrl:'partials/the-dot.html'});
     $routeProvider.when('/the-scope-on-method', {templateUrl:'partials/method-on-scope.html'});
+    $routeProvider.when('/ng-repeat', {templateUrl:'partials/ng-repeat.html'});
+    $routeProvider.when('/show-hide', {templateUrl:'partials/hiding-showing.html'});
+    $routeProvider.when('/forms', {templateUrl:'partials/forms.html'});
     $routeProvider.otherwise({redirectTo:'/view1'});
 }]);

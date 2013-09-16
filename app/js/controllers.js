@@ -3,20 +3,55 @@
 /* Controllers */
 
 var bibliotek = angular.module('bibliotek.controllers', []);
+var students = [
+    {name:'Mary Contrary', id:'1'},
+    {name:'Jack Sprat', id:'2'},
+    {name:'Jill Hill', id:'3'}
+];
 
-bibliotek.factory("MOService", function ($rootScope) {
-    var mt = {};
-    mt.message = "";
-    mt.receiveMessage = function (msg) {
-        this.message = msg;
-        this.moMessageItem();
+bibliotek.controller('sampleFormController',['$scope', function ($scope) {
+    $scope.serverrsp={};
+
+   $scope.save = function(){
+
+       $scope.status={};
+       $scope.status.msg ="Successfully added";
+       $scope.serverrsp=angular.copy($scope.user);
+
+
+
+   };
+
+    $scope.reset = function(){
+        $scope.serverrsp={};
+        $scope.user={};
+    };
+}]);
+
+bibliotek.controller('DeathrayMenuController', ['$scope', function ($scope) {
+    $scope.menuState.show = false;
+    $scope.toggleMenu = function () {
+        window.alert("toggleMenu");
+        $scope.menuState.show = !$scope.menuState.show;
     };
 
-    mt.moMessageItem = function () {
-        $rootScope.$broadcast("getMessage");
+    $scope.stun = function () {
+       window.alert("stun");
     };
-    return mt;
-});
+    $scope.disintegrate = function () {
+        window.alert("disintegrate");
+    };
+    $scope.erase = function () {
+        window.alert("erase");
+    };
+}]);
+
+bibliotek.controller('StudentListController', ['$scope', function ($scope) {
+    $scope.students = students;
+    $scope.insertTom = function () {
+        $scope.students.splice(1, 0, {name:'Tom Thumb', id:'4'});
+    };
+}]);
 
 bibliotek.controller('ControllerOriginate', ['$scope', 'MOService', function ($scope, MOService) {
 
@@ -33,8 +68,8 @@ bibliotek.controller('ControllerOriginate', ['$scope', 'MOService', function ($s
 
 
 bibliotek.controller('ControllerReverse', ['$scope', function ($scope) {
-    $scope.reverseMessage=function(message){
-       return message.split("").reverse().join("");
+    $scope.reverseMessage = function (message) {
+        return message.split("").reverse().join("");
     }
 }]);
 
