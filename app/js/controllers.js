@@ -12,6 +12,10 @@ var students = [
 bibliotek.controller('sampleFormController',['$scope', function ($scope) {
     $scope.serverrsp={};
 
+    $scope.isUnchanged = function(user) {
+        return angular.equals(user, $scope.serverrsp);
+    };
+
    $scope.save = function(){
 
        $scope.status={};
@@ -26,6 +30,8 @@ bibliotek.controller('sampleFormController',['$scope', function ($scope) {
         $scope.serverrsp={};
         $scope.user={};
     };
+
+    $scope.reset();
 }]);
 
 bibliotek.controller('DeathrayMenuController', ['$scope', function ($scope) {

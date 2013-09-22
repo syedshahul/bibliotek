@@ -1,18 +1,56 @@
 <div ng-controller="sampleFormController">
-    <form novalidate class="simple-form">
-        <div><span class="text-info">Name </span><input type="text" ng-model="user.name" class="input-medium"/></div>
-        <div><span class="text-info">Email</span><input type="text" ng-model="user.email" class="input-medium"/></div>
+    <form novalidate class="css-form" name="sampleForm">
+        <div><span class="text-info">Name </span>
+            <input type="text" ng-model="user.name" name="uName" class="input-medium" required autofocus/>
+        </div>
+        <div><span class="text-info">Email</span>
+            <input type="email" ng-model="user.email" name="uEmail"  required class="input-medium"/>
+
+            <div ng-show="sampleForm.uEmail.$dirty && sampleForm.uEmail.$invalid">
+                Invalid :
+                <span ng-show="sampleForm.uEmail.$error.required">Share your email id with us.</span>
+                <span ng-show="sampleForm.uEmail.$error.email"> Invalid email id.</span>
+            </div>
+        </div>
         <div><span class="text-info">Gender</span>
-            <input type="radio" ng-model="user.gender" value="male" class="radio"/>
-            <input type="radio" ng-model="user.gender" value="female" class="radio"/></div>
-        <button ng-click="save()">Save</button>
+            <input type="radio" ng-model="user.gender" name="uGender" value="male" class="radio"/>
+            <input type="radio" ng-model="user.gender" name="uGender" value="female" class="radio"/>
+        </div>
+        <div><span class="text-info">Year of Birth</span>
+            <input id="yob" name="user.yob" type="number" min="1980" max="2013" step="1" class="calendar">
+            </div>
+
+        <div><span class="text-info">Mobile</span>
+            <input type="tel" ng-model="user.mobile" placeholder="Ex: 044-3333333" name="uMobile" class="input-medium" required/>
+        </div>
+
+        <div><span class="text-info">Linkedin URL </span>
+            <input type="url" ng-model="user.url" name="uUrl" class="input-medium" required/>
+        </div>
+
+        <div><span class="text-info">Salary </span>
+            <input type="range" ng-model="user.salary" name="uSalary" min="8000" max="400000" step="500"  class="input-medium" required/>
+           <span class="info" ng-bind="user.salary"/>
+        </div>
+
+       <!-- <div><span class="text-info">Search </span>
+            <input type="search" ng-model="user.search" name="uSearch" class="input-medium" required/>
+        </div>-->
+
+        <div><span class="text-info">Color you like </span>
+            <input type="color" ng-model="user.color" name="uColor" class="input-medium" required/>
+            <span class="info" ng-bind="user.color"/>
+        </div>
+
+        <button ng-click="save()" ng-disabled="sampleForm.$invalid || isUnchanged(user)">Save</button>
         <br/>
-        <button ng-click="reset()">Reset</button>
+        <!--ng-disabled="form.$invalid || isUnchanged(user)"-->
+        <button ng-click="reset()" ng-disabled="isUnchanged(user)">Reset</button>
     </form>
 
     <div class="info">
     <pre>
-        <span class="label">Name    : </span> <span class="text-success">{{ user.name }}  </span>
+        <span class="ng-pristine">Name    : </span> <span class="text-success">{{ user.name }}  </span>
         <span class="label">Email   :</span>  <span class="text-success">{{ user.email }} </span>
         <span class="label">Gender  :</span> <span class="text-success"> {{ user.gender }} </span>
     </pre>
@@ -25,4 +63,12 @@
 
         <h4 ng-bind="status.msg" class="alert-success"/>
     </div>
+    <style type="text/css">
+        .css-form input.ng-invalid.ng-dirty {
+            background-color: #FA787E;
+        }
+        .css-form input.ng-valid.ng-dirty {
+            background-color: #78FA89;
+        }
+    </style>
 </div>
