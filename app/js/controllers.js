@@ -9,6 +9,11 @@ var students = [
     {name:'Jill Hill', id:'3'}
 ];
 
+
+bibliotek.controller('digitFormController',['$scope', function($scope){
+
+}]);
+
 bibliotek.controller('sampleFormController',['$scope', function ($scope) {
     $scope.serverrsp={};
 

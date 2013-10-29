@@ -1,0 +1,23 @@
+<div ng-controller="digitFormController" class="well">
+    <form novalidate class="css-form" name="digitForm">
+        <div><span class="text-info">Age</span>
+            <input type="number" ng-model="user.age" placeholder="18"
+									 name="uAge" class="input-medium" integer required/>
+					<span ng-show="digitForm.uAge.$error.required">Share your age
+					with us.</span>
+					<span ng-show="digitForm.uAge.$error.integer"> Invalid number.</span>
+					<span class="info" ng-bind="user.age"/>
+        </div>
+
+			<div><span class="text-info">Tax</span>
+				<input type="text" ng-model="user.tax" placeholder="2.5"
+							 name="uTax" class="input-medium" smart-float required/>
+					<span ng-show="digitForm.uTax.$error.required">Tax required.</span>
+				<span ng-show="digitForm.uTax.$error.float"> Invalid
+					entry.</span>
+				<span class="info" ng-bind="user.tax"/>
+			</div>
+
+        </form>
+
+    </div>

@@ -15,5 +15,6 @@ var bibliotek = angular.module('bibliotek', ['ui.bootstrap','bibliotek.filters',
     $routeProvider.when('/ng-repeat', {templateUrl:'partials/ng-repeat.html'});
     $routeProvider.when('/show-hide', {templateUrl:'partials/hiding-showing.html'});
     $routeProvider.when('/forms', {templateUrl:'partials/forms.html'});
+    $routeProvider.when('/directives', {templateUrl:'partials/directive.html'});
     $routeProvider.otherwise({redirectTo:'/view1'});
 }]);
