@@ -3,11 +3,13 @@
 /* Controllers */
 
 var bibliotek = angular.module('bibliotek.controllers', []);
-var students = [
-    {name:'Mary Contrary', id:'1'},
-    {name:'Jack Sprat', id:'2'},
-    {name:'Jill Hill', id:'3'}
-];
+
+
+bibliotek.controller('studentsController',['$scope','Students', function($scope, Students){
+    //assign Offers service object to controller scope variable
+    $scope.students=Students;
+    $scope.showCount=2;
+}]);
 
 
 bibliotek.controller('digitFormController',['$scope', function($scope){

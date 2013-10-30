@@ -9,6 +9,8 @@ http://www.thinkster.io/pick/51d26fd51d7225edb4000004/angularjs-defining-a-metho
     <h3 ng-bind="reverseMessage(message)"> </h3>
     <!-- ng-bind directive similar as {{  }}-->
     <h3> {{  reverseMessage(message)}} </h3>
+	  <!-- Reverse filter -->
+	<h3> {{  message |reverse }} </h3>
 
     <h1 class="page-header"> Expressions</h1>
     <input ng-model="amount" class="input-medium"/>

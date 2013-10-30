@@ -1,0 +1,63 @@
+<!--
+ http://www.thinkster.io/pick/EnA7rkqH82/angularjs-filters
+ http://www.thinkster.io/pick/ET1iee6rnm/angularjs-ngfilter
+ http://www.thinkster.io/pick/RjhqhSFGFP/angularjs-built-in-filters
+
+-->
+<div ng-controller="ControllerReverse" class="container">
+	<h1 class="page-header"> Filters</h1>
+	<label class="text-info">
+		Text input </label>
+	<input ng-model="message" class="input-medium"/>
+
+	<!-- Reverse filter -->
+	<label class="text-info">
+		Reverse the string</label>
+	<h4 ng-bind="message | reverse"></h4>
+	<label class="text-info"> To uppercase </label>
+	<h4 ng-bind="message | uppercase"></h4>
+
+	<label class="text-info"> Checkmark </label>
+	<h4 ng-bind="message | checkmark"></h4>
+
+	<h1 class="page-header"> Expressions</h1>
+	<input ng-model="amount" class="input-medium"/>
+	<input ng-model="rate" class="input-medium"/>
+
+	<label> Total : <h4 ng-bind="amount * rate|currency"></h4></label>
+</div>
+
+<div ng-controller="studentsController" class="container">
+	<!-- ng-filter searchby.name -->
+<div>
+	<label>
+		<select ng-model="showCount">
+		<option value="2" selected="selected">2</option>
+		<option value="10">10</option>
+		<option value="10">10</option>
+		<option value="50">50</option>
+			<option value="100">100</option>
+	</select> records per page</label>
+
+	<label class="text-info"> Search <input
+		ng-model="searchby.name"
+		class="input-medium"/></label>
+</div>
+	<table class="table table-striped table-bordered table-condensed">
+		<!-- Header container-->
+		<tr>
+			<td><label class="text-info"> Id</label></td>
+			<td><label class="text-info"> Student Name </label></td>
+			<td><label class="text-info"> Gender </label></td>
+		</tr>
+		<!-- data tables container -->
+		<tr
+				ng-repeat="student in students | filter : searchby | orderBy:'name' | limitTo:showCount">
+			<td><label ng-bind="student.id"/></td>
+			<td><label ng-bind="student.name | lowercase"/></td>
+			<td><label ng-bind="student.gender | uppercase"/></td>
+		</tr>
+
+	</table>
+
+</div>
