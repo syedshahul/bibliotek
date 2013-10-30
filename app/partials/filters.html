@@ -54,8 +54,8 @@
 		<tr
 				ng-repeat="student in students | filter : searchby | orderBy:'name' | limitTo:showCount">
 			<td><label ng-bind="student.id"/></td>
-			<td><label ng-bind="student.name | lowercase"/></td>
-			<td><label ng-bind="student.gender | uppercase"/></td>
+			<td><label ng-bind="student.name | uppercase "/></td>
+			<td><label ng-bind="student.gender | lowercase"/></td>
 		</tr>
 
 	</table>
