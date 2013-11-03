@@ -17,5 +17,11 @@ var bibliotek = angular.module('bibliotek', ['ui.bootstrap','bibliotek.filters',
     $routeProvider.when('/forms', {templateUrl:'partials/forms.html'});
     $routeProvider.when('/directives', {templateUrl:'partials/directive.html'});
     $routeProvider.when('/filters', {templateUrl:'partials/filters.html'});
+    $routeProvider.when('/directivesCtrl', {templateUrl:'partials/directives-controllers.html'});
+    $routeProvider.when('/transclusion', {templateUrl:'partials/transclusion.html'});
+    $routeProvider.when('/components-containers', {templateUrl:'partials/components-containers.html'});
+    $routeProvider.when('/directive-communication', {templateUrl:'partials/directive-communication.html'});
+
+
     $routeProvider.otherwise({redirectTo:'/view1'});
 }]);

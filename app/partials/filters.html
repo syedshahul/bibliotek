@@ -46,13 +46,14 @@
 	<table class="table table-striped table-bordered table-condensed">
 		<!-- Header container-->
 		<tr>
-			<td><label class="text-info"> Id</label></td>
-			<td><label class="text-info"> Student Name </label></td>
+			<td><label class="text-info"> Student Id</label></td>
+			<td><lblstudentname></lblstudentname></td>
 			<td><label class="text-info"> Gender </label></td>
 		</tr>
 		<!-- data tables container -->
 		<tr
 				ng-repeat="student in students | filter : searchby | orderBy:'name' | limitTo:showCount">
+
 			<td><label ng-bind="student.id"/></td>
 			<td><label ng-bind="student.name | uppercase "/></td>
 			<td><label ng-bind="student.gender | lowercase"/></td>

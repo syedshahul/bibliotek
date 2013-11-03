@@ -16,6 +16,17 @@ bibliotek.controller('digitFormController',['$scope', function($scope){
 
 }]);
 
+bibliotek.controller('tweetController',['$scope', function($scope){
+    $scope.loadMoreTweets= function(){
+        console.info("loading tweets...")
+    }
+
+    $scope.deleteTweets= function(){
+        console.info("deleting tweets...")
+    }
+}]);
+
+
 bibliotek.controller('sampleFormController',['$scope', function ($scope) {
     $scope.serverrsp={};
 

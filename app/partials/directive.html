@@ -1,3 +1,14 @@
+<div enterdiv="btn-large" leavediv>
+	 Panel div
+</div>
+
+<div enterouterdiv="panel" leaveouterdiv>
+	outer div
+	<div enterinnerdiv="placeholder" leaveinnerdiv>
+		 inner div
+	</div>
+</div>
+
 <div ng-controller="digitFormController" class="well">
     <form novalidate class="css-form" name="digitForm">
         <div><span class="text-info">Age</span>
@@ -12,10 +23,19 @@
 			<div><span class="text-info">Tax</span>
 				<input type="text" ng-model="user.tax" placeholder="2.5"
 							 name="uTax" class="input-medium" smart-float required/>
-					<span ng-show="digitForm.uTax.$error.required">Tax required.</span>
+				<!-- Directive for Element-->
+					<span
+							ng-show="digitForm.uTax.$error.required"><attrtaxrequired></attrtaxrequired></span>
 				<span ng-show="digitForm.uTax.$error.float"> Invalid
 					entry.</span>
 				<span class="info" ng-bind="user.tax"/>
+			</div>
+			<!-- Directive for Attribute -->
+			<div attrtaxrequired flash class="attrtaxrequired" >
+			<!-- Directive  M: comment
+			  It should be directive:<<your M restrict directive name>>
+			-->
+				<!-- directive:attrtaxrequired -->
 			</div>
 
         </form>
