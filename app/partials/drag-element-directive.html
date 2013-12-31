@@ -1,0 +1,17 @@
+<div>
+<span draggable> Drag me</span>
+</div>
+
+	<!-- isolate scope-->
+	<div ng-controller="scopeIsolateCtrl">
+
+		<input type="text" ng-model="productname"/>
+
+		<div eqproduct productname="productname"/>
+
+
+		<div atproduct productname="{{ productname }}"/>
+
+	</div>
+
+

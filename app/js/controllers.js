@@ -27,6 +27,31 @@ bibliotek.controller('tweetController',['$scope', function($scope){
 }]);
 
 
+bibliotek.controller("accordionCtrl", ['$scope', function ($scope) {
+    $scope.acrdexpanders=[
+        {title:"Accordion 1", text:"You are viewing Accordion 1 text"},
+        {title:"Accordion 2", text:"You are viewing Accordion 2 text"},
+        {title:"Accordion 3", text:"You are viewing Accordion 3 text"}
+    ];
+
+
+}]);
+
+bibliotek.controller("scopeIsolateCtrl", ['$scope', function ($scope) {
+/*	$scope.products=[
+		{name:"Accordion 1", description:"You are viewing Accordion 1 text"},
+		{name:"Accordion 2", description:"You are viewing Accordion 2 text"},
+		{name:"Accordion 3", description:"You are viewing Accordion 3 text"}
+	];*/
+	$scope.productname="Accordion 1";
+}]);
+
+
+bibliotek.controller("expandCtrl", ['$scope', function ($scope) {
+    $scope.title="Bingo";
+    $scope.text="Hi, you are seeing this message because you clicked to expand... blah blah blah...";
+}]);
+
 bibliotek.controller('sampleFormController',['$scope', function ($scope) {
     $scope.serverrsp={};
 

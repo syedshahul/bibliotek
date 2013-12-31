@@ -1,4 +1,7 @@
 <div>
+	<!--
+	http://www.thinkster.io/pick/soaqKb2sPr/angularjs-directive-communication
+	-->
 	<country>
 		<state>
 			<city>
@@ -7,3 +10,23 @@
 		</state>
 	</country>
 </div>
+	   <span draggable> Drag me</span>
+		<!---->
+
+		<div draggable ng-controller="expandCtrl">
+			<expand class="expander" expand-title="Click to expand">
+				{{text}}
+			</expand>
+		</div>
+<!-- accordion example-->
+		<div ng-controller="accordionCtrl" style="margin-top: 10px;">
+
+			     <acrrordmsg>
+						 <acrdexpander class="acrdexpander"
+											 ng-repeat="acrdexpander in acrdexpanders"
+											 acrdexpander-title="{{acrdexpander.title}}">
+
+							 {{acrdexpander.text}}
+						 </acrdexpander>
+			     </acrrordmsg>
+		</div>

@@ -21,6 +21,7 @@ var bibliotek = angular.module('bibliotek', ['ui.bootstrap','bibliotek.filters',
     $routeProvider.when('/transclusion', {templateUrl:'partials/transclusion.html'});
     $routeProvider.when('/components-containers', {templateUrl:'partials/components-containers.html'});
     $routeProvider.when('/directive-communication', {templateUrl:'partials/directive-communication.html'});
+	$routeProvider.when('/directive-drag', {templateUrl:'partials/drag-element-directive.html'});
 
 
     $routeProvider.otherwise({redirectTo:'/view1'});
