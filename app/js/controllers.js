@@ -4,7 +4,60 @@
 
 var bibliotek = angular.module('bibliotek.controllers', []);
 
+/* route handler*/
 
+bibliotek.controller('routeCtrl',['$rootScope',function($rootScope){
+	$rootScope.$on("$routeChangeError",
+								 function (event, current, previous, rejection) {
+									 console.log("failed to change routes");
+								 });
+}]);
+
+var viewCtrl = bibliotek.controller("ViewCtrl", function ($scope) {
+	$scope.model = {
+		message: "I'm a great app!"
+	}
+});
+
+viewCtrl.loadData = function ($q, $timeout) {
+	var defer = $q.defer;
+	$timeout(function () {
+		defer.reject("loadData");
+	}, 2000);
+	return defer.promise;
+};
+
+/* promises*/
+bibliotek.controller('promiseCtrl',['$scope','$q', function($scope, $q){
+	//assign Offers service object to controller scope variable
+	var defer = $q.defer();
+	defer.promise
+			.then(function(){
+		alert("I promise I'll get it...")
+				return "1st input";
+	})
+			.then(function(input){
+							alert("I promise "+input);
+								return " 2nd input ";
+						})
+			.then(function(input){
+							alert("I promise I'll also :" +input)
+						})
+
+	defer.resolve();
+	$scope.message ="I am done";
+}]);
+
+/*route param*/
+bibliotek.controller('RouteParamCtrl',['$scope','$routeParams',function($scope,$routeParams){
+	console.log($routeParams.name);
+	console.log($routeParams.email);
+	console.log($routeParams.mobile);
+	$scope.name=$routeParams.name;
+	$scope.email=$routeParams.email;
+	$scope.mobile=$routeParams.mobile;
+
+}]);
 bibliotek.controller('studentsController',['$scope','Students', function($scope, Students){
     //assign Offers service object to controller scope variable
     $scope.students=Students;

@@ -18,6 +18,78 @@ bibliotek.directive('appVersion', ['version', function (version) {
 	};
 }]);
 
+
+
+bibliotek.directive("zippy", function(){
+	return {
+		restrict: "E",
+		scope:{
+			title:"@"
+		},
+		transclude: true,
+		template: '<div> <h3 ng-click="toggleContent()">{{title}}</h3>' +
+							'<div ng-show="isContentVisible" ng-transclude></div>' +
+							'</div>',
+		link: function(scope){
+			scope.isContentVisible = false;
+			scope.toggleContent = function(){
+				scope.isContentVisible = !scope.isContentVisible;
+			};
+	}
+};
+});
+
+/* route error*/
+bibliotek.directive('routeError', function($rootScope){
+	return{
+		restrict:'E',
+		template:"<div class='alert-box alert' ng-show='isError'>Error</div>",
+		link:function(scope){
+     $rootScope.on('$routeChangeError', function(event, current, previous, rejection){
+			 console.log("failed to change routes");
+			 scope.isError=true;
+		 })
+		}
+	}
+});
+/* focus*/
+bibliotek.directive('animateBox', function () {
+	var linkFn;
+	linkFn = function (scope, element, attrs, controller) {
+		console.log("animateBox");
+		var animateDown, animateRight, firstBox, secondBox;
+		firstBox = element.children()[0];
+		secondBox = element.children()[1];
+		animateDown = function () {
+			$(this).animate({
+												top:'+=60'
+											});
+		}
+		animateRight = function () {
+			$(this).animate({
+												left:'+=60'
+											});
+		}
+		$(firstBox).on('click', animateDown);
+		$(secondBox).on('click', animateRight);
+
+	};
+
+	return{
+		link:linkFn,
+		restrict:'E'
+	};
+});
+
+/* focus*/
+bibliotek.directive('atofocus', function () {
+	return{
+		link:function (scope, element, attrs, controller) {
+			console.log("atofous")
+			element[0].focus();
+		}
+	};
+});
 /* drag an object*/
 bibliotek.directive('draggable', function ($document) {
 	return function (scope, element, attr) {
@@ -46,10 +118,10 @@ bibliotek.directive('draggable', function ($document) {
 
 		function mousemove(event) {
 			y = event.screenY - startY;
-				x = event.screenX - startX;
+			x = event.screenX - startX;
 
-			console.log("startX : " + startX + ", startY : " + startY + ", x : " +
-									 x + ", y : " + y);
+			console.log("startX : " + startX + ", startY : " + startY + ", x : " + x +
+									", y : " + y);
 			element.css({
 										top:y + 'px',
 										left:x + 'px'
@@ -63,8 +135,8 @@ bibliotek.directive('draggable', function ($document) {
 	}
 });
 
- /* isloate scope =*/
-bibliotek.directive('eqproduct', function(){
+/* isloate scope =*/
+bibliotek.directive('eqproduct', function () {
 	return{
 		scope:{
 			productname:'='
@@ -73,7 +145,7 @@ bibliotek.directive('eqproduct', function(){
 	}
 });
 /* isloate scope @*/
-bibliotek.directive('atproduct', function(){
+bibliotek.directive('atproduct', function () {
 	return{
 		scope:{
 			productname:'@'

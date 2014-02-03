@@ -1,4 +1,13 @@
 /* app css stylesheet */
+.box{
+	position: relative;
+	background-color: #444444;
+	height: 60px;
+	width: 60px;
+	 float: left;
+	margin: 5px;
+	cursor: pointer;
+}
 
 .menu {
   list-style: none;

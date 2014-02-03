@@ -1,0 +1,10 @@
+<!--
+ http://www.thinkster.io/pick/3yYACcwytA/angularjs-index-event-log
+
+-->
+<div ng-repeat="item in 'somewrd'.split('')" class="btn-info" ng-click="$log.debug($event)">
+     <!--ng-click="ev=$event"-->
+		{{$index + 1}}. {{item}}
+	<!--{{$index}}-->
+	{{ev.pageX}}
+	</div>

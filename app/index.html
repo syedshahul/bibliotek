@@ -42,7 +42,11 @@
 </head>
 <body>
 <ul class="menu">
-
+	<li><a href="#/zippy">zippy</a></li>
+	<li><a href="#/route-handling">route-handling</a></li>
+	<li><a href="#/promise">promise</a></li>
+	<li><a href="#/manip-dom">manipulating-dom</a></li>
+	<li><a href="#/index-event">index-event</a></li>
 	<li><a href="#/directive-drag">directive-drag</a></li>
 	<li><a href="#/directive-communication">directive-communication</a></li>
 	<li><a href="#/components-containers">components-containers</a></li>
@@ -63,14 +67,15 @@
     <li><a href="#/the-scope-on-method">The scope on method</a></li>
 
 </ul>
-
+<div ang-controller="routeCtrl">
+<route-error></route-error>
 <div ng-view></div>
-
+</div>
 
 <!-- In production use:
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
 -->
-
+<script src="lib/jquery/jquery-1.10.2.min.js"></script>
 <script src="lib/angular/angular.js"></script>
 
 <!--<script src="lib/ui-angular/ui-bootstrap-0.4.0.min.js"></script>-->
